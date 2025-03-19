@@ -1,0 +1,303 @@
+{% extends 'temizliksite/base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" >
+    <div class="carousel-inner">
+        {% for photo in photos %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <img src="{{ photo.image.url }}" class="d-block w-100 carousel-image" alt="Slide {{ forloop.counter }}">
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<section class="container my-5 hidden bg-light mw-100" data-animation="slide-left">
+<div class="text-center">
+    <h2 class="mb-4 fw-bold">🌿 Karçiçeği Temizlik: Hijyenin ve Kalitenin Buluşma Noktası! 🌿</h2>
+    <p class="lead">
+        Eviniz, iş yeriniz veya özel alanlarınız için derinlemesine, hijyenik ve profesyonel bir temizlik hizmeti mi arıyorsunuz?<br />
+        Karçiçeği Temizlik olarak, deneyimli ekibimiz, son teknoloji ekipmanlarımız ve çevre dostu temizlik ürünlerimizle sadece yüzeyleri değil,
+        ortamın tamamını sağlıklı ve ferah hale getiren titiz bir temizlik sunuyoruz.
+    </p>
+    <p class="lead">
+        Temizlik, yalnızca görünen yüzeyleri değil; soluduğunuz havayı, temas ettiğiniz her noktayı ve yaşam kalitenizi etkileyen önemli bir detaydır.<br />
+        Biz, hijyenin en üst seviyede sağlanması için modern teknikler ve etkili temizlik çözümleri kullanarak sizlere sağlıklı, temiz ve huzurlu bir yaşam alanı sunmayı amaçlıyoruz.
+    </p>
+    <p class="lead">
+        Karçiçeği Temizlik olarak, evlerinizin konforunu artıran detaylı temizlik, ofislerinizi daha düzenli ve hijyenik hale getiren profesyonel çözümler ve
+        inşaat sonrası gibi zorlu alanlar için kusursuz temizlik uygulamaları ile beklentilerinizi en iyi şekilde karşılıyoruz.<br />
+        Siz sadece temiz bir ortamda yaşamanın keyfini çıkarın, gerisini bize bırakın!
+    </p>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+</div>
+</section>
+<h2 class="mb-4 fw-bold text-center hidden text-purple" data-animation="slide-top">Hizmetlerimiz</h2>
+
+
+    <section class="hizmetler container my-5">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🧹 Ev Temizliği</h3>
+                    <p>Evinizde hijyen ve düzeni sağlamak için detaylı temizlik hizmeti sunuyoruz.</p>
+                    <a href="{% url 'ev_temizligi' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🏢 Ofis Temizliği</h3>
+                    <p>Çalışma ortamınızı sağlıklı ve hijyenik hale getirmek için profesyonel çözümler sunuyoruz.</p>
+                    <a href="{% url 'ofis_temizligi' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🚧 İnşaat Sonrası Temizlik</h3>
+                    <p>İnşaat sonrası oluşan toz ve kalıntıları titizlikle temizliyoruz.</p>
+                    <a href="{% url 'insaat_sonrasi_temizligi' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🏥 Hastane Temizliği</h3>
+                    <p>Hijyen standartlarını en üst seviyede tutarak, enfeksiyon risklerini azaltan ve sağlıklı bir ortam sağlayan profesyonel temizlik hizmeti sunuyoruz.</p>
+                    <a href="{% url 'hastane_temizligi' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🧴 Dezenfeksiyon İşlemi</h3>
+                    <p>Dezenfeksiyon işlemi ile mikropları ve zararlı bakterileri etkili bir şekilde yok ederek, güvenli ve hijyenik bir ortam sağlıyoruz.</p>
+                    <a href="{% url 'dezenfeksiyon' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🏠 Yurt Temizliği</h3>
+                    <p>Yurt temizliği ile öğrenci ve personel sağlığını koruyarak, hijyenik ve düzenli yaşam alanları oluşturmak için profesyonel temizlik hizmetleri sunuyoruz.</p>
+                    <a href="{% url 'yurt_temizligi' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🏭 Fabrika Temizliği</h3>
+                    <p>Fabrika temizliği ile mikropları ve zararlı bakterileri etkili bir şekilde yok ederek, üretim alanlarının hijyenik ve düzenli olmasını sağlıyoruz.</p>
+                    <a href="{% url 'fabrika_temizligi' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🏢 İş Yeri Temizliği</h3>
+                    <p>Çalışanların sağlığını koruyarak verimli bir çalışma ortamı yaratmak için detaylı ve düzenli temizlik hizmetleri sunuyoruz.</p>
+                    <a href="{% url 'isyeri_temizligi' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🏛️ İdari Bina Temizliği</h3>
+                    <p>İdari bina temizliği ile ofisler, toplantı salonları ve ortak kullanım alanlarını hijyenik ve düzenli tutarak çalışanların sağlıklı bir ortamda çalışmasını sağlıyoruz.</p>
+                    <a href="{% url 'idari_bina_temizligi' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🏡 Villa Temizliği</h3>
+                    <p>Villa temizliği, geniş yaşam alanlarını hijyenik ve düzenli tutarak konforlu, sağlıklı ve estetik bir ortam sunan detaylı temizlik hizmetidir.</p>
+                    <a href="{% url 'villa_temizligi' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🏗️ Dış Cephe Temizliği</h3>
+                    <p>Dış cephe temizliği, binaların estetik görünümünü koruyarak çevresel kirleticilerden arındırılmasını ve uzun ömürlü olmasını sağlayan profesyonel bir temizlik hizmetidir.</p>
+                    <a href="{% url 'dis_cephe_temizligi' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="hizmet-card p-4 text-center shadow">
+                    <h3 class="text-primary">🧼 Yerinde Halı Yıkama</h3>
+                    <p>Yerinde halı yıkama, halılarınızı bulunduğu mekânda özel ekipman ve profesyonel temizlik ürünleri ile derinlemesine temizleyerek hijyenik ve kullanıma hazır hale getiren pratik bir temizlik hizmetidir.</p>
+                    <a href="{% url 'yerinde_hali_yikama' %}" class="detay-btn btn btn-primary">Detayları Gör</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5 hidden" data-animation="slide-right">
+        <div class="container text-center">
+    <h2 class="mb-4">Neden Karçiçeği Temizlik?</h2>
+    <p class="lead">
+        Karçiçeği Temizlik olarak, sıradan bir temizlik hizmetinin ötesine geçiyoruz! Hijyen, kalite ve güvenilirliği bir araya getirerek yaşam ve
+        çalışma alanlarınızı en yüksek temizlik standartlarına ulaştırıyoruz. Deneyimli ekibimiz, profesyonel ekipmanlarımız ve çevre dostu temizlik
+        ürünlerimizle, her mekânda kusursuz hijyen sağlıyoruz.
+    </p>
+    <p class="lead">
+        Müşteri memnuniyeti odaklı yaklaşımımız, bizi sektörde bir adım öne çıkarırken, sunduğumuz özelleştirilmiş çözümlerle ihtiyacınıza en uygun
+        hizmeti sunuyoruz. Titizlik, güven ve kaliteyi ön planda tutan Karçiçeği Temizlik, yaşam alanlarınızı sağlıklı, ferah ve tertemiz kılmak için burada! 🍃✨
+    </p>
+</div>
+</section>
+
+<section class="py-5 hidden bg-purple" data-animation="slide-top">
+    <div class="container">
+
+        <h2 class="text-center mb-4 text-white">Müşteri Yorumları</h2>
+        <div id="yorumCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for comment in comments %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="card mx-auto">
+                            <div class="card-body text-center">
+                                <p class="card-text">{{ comment.comment }}</p>
+                                <p class="card-text text-muted">{{ comment.name }} - {{ comment.date|date:"d.m.Y" }}</p>
+                                <p class="card-text text-yellow">
+                                    {% for i in star_range %}
+                                        {% if forloop.counter <= comment.star_rating %}
+                                            &#9733;
+                                        {% else %}
+                                            &#9734;
+                                        {% endif %}
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="text-center text-white">Henüz yorum bulunmamaktadır.</p>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#yorumCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#yorumCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'musteri_gorusleri' %}" class="btn btn-light btn-lg">Siz de Yorumunuzu Belirtin</a>
+        </div>
+    </div>
+</section>
+
+    <section class="references-section hidden" data-animation="slide-bottom">
+        <div class="container">
+            <br>
+            <h2>Referanslarımız</h2>
+            <div id="referencesCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="reference-card">
+                                    <img src="{% static 'temizliksite/images/references/bostonyapi.jpg' %}" alt="Boston Yapı">
+                                    <h4>Boston Yapı</h4>
+                                    <p>Boston Yapı ile uzun yıllardır devam eden iş birliğimizle, projelerinin temizlik ve hijyen ihtiyaçlarını karşılıyoruz.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="reference-card">
+                                    <img src="{% static 'temizliksite/images/references/ozka.jpg' %}" alt="Özka İnşaat">
+                                    <h4>Özka İnşaat</h4>
+                                    <p>Özka İnşaat'ın inşaat sahalarında temizlik ve düzen için profesyonel hizmet sunuyoruz.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="reference-card">
+                                    <img src="{% static 'temizliksite/images/references/elmacioglu.jpg' %}" alt="Elmacıoğlu İskender">
+                                    <h4>Elmacıoğlu İskender</h4>
+                                    <p>Elmacıoğlu İskender restoranlarının hijyen standartlarını en üst seviyede tutuyoruz.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="reference-card">
+                                    <img src="{% static 'temizliksite/images/references/bekainsaat.jpg' %}" alt="Beka İnşaat">
+                                    <h4>Beka İnşaat</h4>
+                                    <p>Beka İnşaat'ın ofis ve şantiyelerinde temizlik hizmetleri sağlıyoruz.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="reference-card">
+                                    <img src="{% static 'temizliksite/images/references/getir.jpg' %}" alt="Getir Şubeleri Kayseri (Develi)">
+                                    <h4>Getir Şubeleri Kayseri</h4>
+                                    <p>Getir'in Kayseri şubesinin temizlik ve hijyen ihtiyaçlarını karşılıyoruz.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="reference-card">
+                                    <img src="{% static 'temizliksite/images/references/saray.jpeg' %}" alt="Saray Tarım ve Hayvancılık İdari Bina">
+                                    <h4>Saray Tarım ve Hayvancılık İdari Bina (Develi)</h4>
+                                    <p>Saray Tarım'ın idari binasında düzenli temizlik hizmeti veriyoruz.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="reference-card">
+                                    <img src="{% static 'temizliksite/images/references/elmas_malzemecilik.jpg' %}" alt="Elmas Malzemecilik">
+                                    <h4>Elmas Malzemecilik</h4>
+                                    <p>Elmas Malzemecilik'in depolarında temizlik ve hijyen sağlıyoruz.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="reference-card">
+                                    <img src="{% static 'temizliksite/images/references/kayzer.jpeg' %}" alt="Kayzer Yapı ve İnşaat">
+                                    <h4>Kayzer Yapı ve İnşaat</h4>
+                                    <p>Kayzer Yapı'nın inşaat sahalarında temizlik hizmeti sunuyoruz.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="reference-card">
+                                    <img src="{% static 'temizliksite/images/references/ünsal.avif' %}" alt="Ünsal Makina İdari Bina">
+                                    <h4>Ünsal Makina İdari Bina</h4>
+                                    <p>Ünsal Makina'nın idari binasında düzenli temizlik hizmeti veriyoruz.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#referencesCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Önceki</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#referencesCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Sonraki</span>
+                </button>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

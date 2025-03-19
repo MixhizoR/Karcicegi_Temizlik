@@ -1,0 +1,81 @@
+{% extends 'temizliksite/base.html' %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+<br>
+<br>
+
+<!-- Müşteri Yorumları Carousel Section -->
+<section class="py-5 bg-purple">
+    <div class="container">
+        <h2 class="text-center mb-4 text-white">Müşteri Yorumları</h2>
+        <div id="yorumCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for comment in comments %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="card mx-auto">
+                            <div class="card-body text-center">
+                                <p class="card-text">{{ comment.comment }}</p>
+                                <p class="card-text text-muted">{{ comment.name }} - {{ comment.date|date:"d.m.Y" }}</p>
+                                <p class="card-text text-yellow">
+                                    {% for i in star_range %}
+                                        {% if forloop.counter <= comment.rating %}
+                                            &#9733;
+                                        {% else %}
+                                            &#9734;
+                                        {% endif %}
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="text-center text-white">Henüz yorum bulunmamaktadır.</p>
+                {% endfor %}
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#yorumCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#yorumCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Yeni Yorum Ekleme Formu -->
+<div class="container mt-5 form-section">
+    <h2 class="text-center mb-4">Yorumunuzu Paylaşın</h2>
+    <form id="comment-form" method="POST" action="{% url 'musteri_gorusleri' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="{{ form.name.id_for_label }}" class="form-label">Adınız</label>
+            {{ form.name|add_class:"form-control" }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Puanınız</label>
+            <div class="star-rating">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label for="star5" class="star">&#9733;</label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4" class="star">&#9733;</label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3" class="star">&#9733;</label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2" class="star">&#9733;</label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1" class="star">&#9733;</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="{{ form.comment.id_for_label }}" class="form-label">Yorumunuz</label>
+            {{ form.comment|add_class:"form-control" }}
+        </div>
+        <button type="submit" class="btn w-100 bg-purple text-white">Yorumu Gönder</button>
+    </form>
+</div>
+
+{% endblock %}

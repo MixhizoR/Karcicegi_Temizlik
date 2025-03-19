@@ -1,0 +1,18 @@
+{% extends 'temizliksite/base.html' %}
+{% load static %}
+{% block content %}
+    
+    <section class="gallery-section py-5 text-center"> <!-- Buraya text-center eklendi -->
+        <div class="container">
+            <h2 class="mb-4">Galerimiz</h2>
+            <div class="row">
+                {% for photo in photos %}
+                <div class="col-md-4 mb-4 d-flex justify-content-center "> <!-- Burada d-flex ve justify-content-center eklendi -->
+                    <img src="{{ photo.image.url }}" class="img-fluid rounded shadow">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

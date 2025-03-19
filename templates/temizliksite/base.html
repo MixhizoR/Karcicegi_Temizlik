@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'temizliksite/css/tasarım.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'temizliksite/js/anımasyon.js' %}"></script>
+    <title>Karçiçeği Temizlik</title>
+</head>
+<body>
+
+    <div class="phone-vr position-fixed bottom-0 end-0 m-3">
+        <a href="https://api.whatsapp.com/send?phone=905400293838">
+            <button type="button" class="btn rounded-circle p-0" data-bs-toggle="tooltip" data-bs-placement="left" title="Whatsapp">
+                <i class="fab fa-whatsapp fa-2x"></i>
+            </button>
+        </a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg bg-purple py-2 border-3 border-black rounded-0">
+      <div class="container-fluid px-0">
+          <!-- Logo -->
+          <a class="navbar-brand ms-3" href="/">
+              <img src="{% static 'temizliksite/images/homepage/logo.jpg' %}" alt="Logo" width="60" height="60">
+          </a>
+  
+          <!-- Toggler Butonu -->
+          <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <!-- Navbar İçeriği -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <!-- Navbar Linkleri -->
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link fw-bold px-3 rounded" href="/">Anasayfa</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle fw-bold px-3 rounded" id="navbarDropdownkurumsal" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Kurumsal
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownHakkimizda">
+                          <li><a class="dropdown-item" href="hakkimizda.html">Hakkımızda</a></li>
+                          <li><a class="dropdown-item" href="referanslarimiz.html">Referanslarımız</a></li>
+                          <li><a class="dropdown-item" href="musteri-gorusleri.html">Müşteri Görüşleri</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle fw-bold px-3 rounded" id="navbarDropdownHizmetler" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Hizmetler
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownHizmetler">
+                          <li><a class="dropdown-item" href="{% url 'ev_temizligi' %}">Ev Temizliği</a></li>
+                          <li><a class="dropdown-item" href="{% url 'ofis_temizligi' %}">Ofis Temizliği</a></li>
+                          <li><a class="dropdown-item" href="{% url 'insaat_sonrasi_temizligi' %}">İnşaat Sonrası Temizliği</a></li>
+                          <li><a class="dropdown-item" href="{% url 'hastane_temizligi' %}">Hastane Temizliği</a></li>
+                          <li><a class="dropdown-item" href="{% url 'dezenfeksiyon' %}">Dezenfeksiyon İşlemi</a></li>
+                          <li><a class="dropdown-item" href="{% url 'yurt_temizligi' %}">Yurt Temizliği</a></li>
+                          <li><a class="dropdown-item" href="{% url 'fabrika_temizligi' %}">Fabrika Temizliği</a></li>
+                          <li><a class="dropdown-item" href="{% url 'isyeri_temizligi' %}">İşyeri Temizliği</a></li>
+                          <li><a class="dropdown-item" href="{% url 'idari_bina_temizligi' %}">İdari Bina Temizliği</a></li>
+                          <li><a class="dropdown-item" href="{% url 'villa_temizligi' %}">Villa Temizliği</a></li>
+                          <li><a class="dropdown-item" href="{% url 'dis_cephe_temizligi' %}">Dış Cephe Temizliği</a></li>
+                          <li><a class="dropdown-item" href="{% url 'yerinde_hali_yikama' %}">Yerinde Halı Yıkama</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link fw-bold px-3 rounded" href="iletisim.html">İletişim</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link fw-bold px-3 rounded" href="galeri.html">Galeri</a>
+                  </li>
+              </ul>
+  
+              <!-- İletişim Bilgileri ve Sosyal Medya -->
+              <div class="d-flex align-items-center border-3 border-black rounded-4 px-3 me-3">
+                  <div class="d-flex flex-wrap gap-2 align-items-center">
+                      <!-- Telefon Numarası -->
+                      <i class="fa-solid fa-phone text-white"></i>
+                      <a href="tel:+905400293838" class="text-white text-decoration-none px-2">+90 540 029 38 38</a>
+  
+                      <!-- E-posta -->
+                      <i class="fa-solid fa-envelope text-white"></i>
+                      <a href="mailto:karcicegitemizlik38@gmail.com" class="text-white text-decoration-none px-2">karcicegitemizlik38@gmail.com</a>
+  
+                      <!-- Sosyal Medya İkonları -->
+                      <div class="d-flex gap-2">
+                          <a href="https://www.instagram.com/karcicegi_temizlik38/" class="text-decoration-none">
+                              <i class="fa-brands fa-instagram text-white" style="font-size: 20px;"></i>
+                          </a>
+                          <a href="https://www.facebook.com/profile.php?id=61574538445707" class="text-decoration-none">
+                              <i class="fa-brands fa-facebook text-white" style="font-size: 20px;"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav>
+   
+
+    
+    {% block content %}{% endblock content %}
+
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-md-4 text-center text-white">
+                  <h5 class="fw-bold">Karçiçeği Temizlik</h5>
+                  <hr class="border-info-subtle" style="width: 100%;">
+                  <p>Temizlikte kalite ve hijyenin adresi! Karçiçeği Temizlik olarak, her türlü temizlik ihtiyacınıza profesyonel çözümler sunuyoruz. Ev temizliğinden ofis temizliğine, inşaat sonrası temizlikten dezenfeksiyona kadar geniş hizmet yelpazemizle yanınızdayız.</p>
+                  <div class="d-flex gap-2 justify-content-center">
+                      <a href="#" class="text-white fs-5"><i class="fab fa-facebook"></i></a>
+                      <a href="#" class="text-white fs-5"><i class="fab fa-instagram"></i></a>
+                  </div>
+              </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-4 text-center text-white">
+                    <h5 class="fw-bold">Menüler</h5>
+                    <hr class="border-info-subtle" style="width: 100%;">
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-white text-decoration-none">Anasayfa</a></li>
+                        <li><a href="/hakkimizda.html" class="text-white text-decoration-none">Hakkımızda</a></li>
+                        <li><a href="/ev-temizligi.html" class="text-white text-decoration-none">Hizmetlerimiz</a></li>
+                        <li><a href="/galeri.html" class="text-white text-decoration-none">Galerimiz</a></li>
+                        <li><a href="/iletisim.html" class="text-white text-decoration-none">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-4 text-center text-white">
+                    <h5 class="fw-bold">Sorunuz mu var?</h5>
+                    <hr class="border-info-subtle" style="width: 100%;">
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Esenyurt, Erman Sk. No:22 D:2, 38050 Melikgazi/Kayseri</li>
+                        <li> <i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+905400293838" class="text-white text-decoration-none px-2">+90 540 029 3838</a></li>
+                        <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:karcicegitemizlik38@gmail.com" class="text-white text-decoration-none px-2">karcicegitemizlik38@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center mt-4 text-white">
+                <small>Copyright ©2025 All rights reserved | Made by <a href="https://www.linkedin.com/in/oguz-selman-cetin/">Oğuz Selman Çetin</a> and <a href="https://www.linkedin.com/in/osman-t%C3%BCzen-571b7133a/">Osman Tüzen</a></small>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
